@@ -69,14 +69,7 @@ tags:
     id: profile-sheet
 - tapOn:
     id: profile-sheet-watch-button
-- runFlow:
-    when:
-      platform: android
-      visible: 'Type your PIN' 
-    commands:
-      - tapOn:
-          text: '1'
-          repeat: 4
+- runFlow: ../utils/MaybeSetupPin.yaml
 - swipe:
     direction: DOWN
 - tapOn:
