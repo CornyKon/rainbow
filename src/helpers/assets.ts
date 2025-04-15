@@ -263,17 +263,6 @@ export const buildBriefUniqueTokenList = (
   const uniqueTokensInShowcaseIds = nonHiddenUniqueTokens
     .filter(({ uniqueId }) => selectedShowcaseTokens.includes(uniqueId))
     .map(({ uniqueId }) => uniqueId);
-  const filteredUniqueTokens = nonHiddenUniqueTokens.filter((token: UniqueAsset) => {
-    if (listType === 'select-nft') {
-      const format = getUniqueTokenFormat(token);
-      const type = getUniqueTokenType(token);
-      return format === 'image' && type === 'NFT';
-    }
-    return true;
-  });
-
-  // group the assets by collection name
-  const assetsByName = groupBy<UniqueAsset>(filteredUniqueTokens, token => token.familyName);
 
   const result: CellTypes[] = [
     {

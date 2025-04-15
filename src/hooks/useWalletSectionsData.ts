@@ -20,7 +20,6 @@ import { remoteCardsStore } from '@/state/remoteCards/remoteCards';
 import { CellTypes } from '@/components/asset-list/RecyclerAssetList2/core/ViewTypes';
 import { AssetListType } from '@/components/asset-list/RecyclerAssetList2';
 import { IS_TEST } from '@/env';
-import { UniqueAsset } from '@/entities';
 
 function useCachedSelector<T, P>(selector: (params: P) => T, params: P, deps: unknown[]): T {
   const cacheRef = useRef<{
@@ -61,6 +60,7 @@ export default function useWalletSectionsData({
   const { accountAddress, language, network, nativeCurrency } = useAccountSettings();
   const { selectedWallet, isReadOnlyWallet } = useWallets();
   const { showcaseTokens } = useShowcaseTokens();
+  console.log('show case tokens: ', showcaseTokens);
   const { hiddenTokens } = useHiddenTokens();
   const remoteConfig = useRemoteConfig();
   const experimentalConfig = useExperimentalConfig();
